@@ -8,10 +8,12 @@ ENV N8N_PROTOCOL=https
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=8080
 ENV GENERIC_TIMEZONE=UTC
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
 RUN mkdir -p /home/node/.n8n && \
-    chown -R node:node /home/node/.n8n
+    chown -R node:node /home/node/.n8n && \
+    chmod 600 /home/node/.n8n/config
 
 USER node
 
-CMD ["/usr/local/bin/n8n"]
+CMD ["n8n"]
