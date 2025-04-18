@@ -1,21 +1,18 @@
-
 FROM n8nio/n8n:latest
-
 
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin  
-ENV N8N_BASIC_AUTH_PASSWORD=YourSecurePassword123 
+ENV N8N_BASIC_AUTH_PASSWORD=YourSecurePassword123  
 ENV N8N_PROTOCOL=https
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=8080
+ENV N8N_DISABLE_PRODUCTION_MAIN_PROCESS=false 
 
 
-ENV N8N_DISABLE_PRODUCTION_MAIN_PROCESS=false
-
-RUN mkdir -p /home/node/.n8n
-RUN chown -R node:node /home/node/.n8n
-
+RUN mkdir -p /home/node/.n8n && \
+    chown -R node:node /home/node/.n8n
 
 USER node
 
-CMD ["n8n"]
+
+CMD ["/usr/local/bin/n8n"]
