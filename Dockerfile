@@ -8,12 +8,11 @@ ENV N8N_PROTOCOL=https
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=8080
 ENV GENERIC_TIMEZONE=UTC
-ENV NODE_ENV=production
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
 RUN mkdir -p /home/node/.n8n && \
-    chown -R node:node /home/node
+    chown -R node:node /home/node/.n8n
 
 USER node
-WORKDIR /home/node
 
-CMD ["npx", "n8n"]
+CMD ["/usr/local/bin/node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
