@@ -11,8 +11,7 @@ ENV GENERIC_TIMEZONE=UTC
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
 RUN mkdir -p /home/node/.n8n && \
-    chown -R node:node /home/node/.n8n && \
-    chmod 600 /home/node/.n8n/config
+    chown -R node:node /home/node/.n8n
 
 USER node
 
