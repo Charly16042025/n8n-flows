@@ -16,4 +16,4 @@ RUN mkdir -p /home/node/.n8n && \
 
 USER node
 
-CMD ["n8n", "start"]
+CMD ["/usr/local/bin/node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
