@@ -16,4 +16,4 @@ RUN mkdir -p /home/node/.n8n && \
 
 USER node
 
-CMD ["/usr/local/bin/node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
+ENTRYPOINT ["npm", "run", "start"]
