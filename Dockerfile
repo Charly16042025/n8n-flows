@@ -15,4 +15,4 @@ RUN mkdir -p /home/node/.n8n && chown -R node:node /home/node/.n8n
 
 USER node
 
-CMD ["sh", "-c", "cd /usr/local/lib/node_modules/n8n && node bin/n8n"]
+CMD ["node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
