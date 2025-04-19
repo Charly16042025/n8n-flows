@@ -11,10 +11,8 @@ ENV GENERIC_TIMEZONE=UTC
 ENV DB_TYPE=sqlite
 ENV DB_SQLITE_VACUUM_ON_STARTUP=true
 
-RUN mkdir -p /home/node/.n8n && \
-    chown -R node:node /home/node/.n8n
+RUN mkdir -p /home/node/.n8n && chown -R node:node /home/node/.n8n
 
 USER node
 
-WORKDIR /usr/local/lib/node_modules/n8n
-CMD ["node", "bin/n8n"]
+CMD ["sh", "-c", "cd /usr/local/lib/node_modules/n8n && node bin/n8n"]
